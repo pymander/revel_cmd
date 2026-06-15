@@ -93,7 +93,8 @@ func (s *SourceProcessor) addPackages() (err error) {
 		Mode: packages.NeedTypes | // For compile error
 			packages.NeedDeps | // To load dependent files
 			packages.NeedName | // Loads the full package name
-			packages.NeedSyntax, // To load ast tree (for end points)
+			packages.NeedSyntax | // To load ast tree (for end points)
+			packages.NeedTypesSizes, // Needed for go v1.23+
 		// Mode:	packages.NeedName | packages.NeedFiles | packages.NeedCompiledGoFiles |
 		//	packages.NeedImports | packages.NeedDeps | packages.NeedExportsFile |
 		//	packages.NeedTypes | packages.NeedSyntax | packages.NeedTypesInfo |
